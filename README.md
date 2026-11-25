@@ -105,6 +105,8 @@ Extract it so the layout matches what the scripts expect:
 unzip Juliet_Test_Suite_v1.3_for_C_Cpp.zip -d juliet-test-suite-c
 ```
 
+Or git clone from https://github.com/arichardson/juliet-test-suite-c/tree/master
+
 so that you end up with:
 
 ```
