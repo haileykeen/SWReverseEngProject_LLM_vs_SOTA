@@ -1,6 +1,6 @@
-binary=build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_symbols
-total_runtime_sec=4.050
-exploration_sec=3.958
+binary=/mnt/c/Users/erinf/School/SRS/build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_symbols
+total_runtime_sec=3.658
+exploration_sec=2.661
 num_findings=1
-time_to_first_finding_sec=3.347
-finding: kind=divide_by_zero addr=0x40145e time_sec=3.347
+time_to_first_finding_sec=3.012
+finding: kind=divide_by_zero addr=0x40145e time_sec=3.012

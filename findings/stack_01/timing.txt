@@ -1,6 +1,6 @@
-binary=build/stack_01/CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_01_bad_symbols
-total_runtime_sec=203.493
-exploration_sec=203.409
+binary=/mnt/c/Users/erinf/School/SRS/build/stack_01/CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_01_bad_symbols
+total_runtime_sec=180.875
+exploration_sec=180.062
 num_findings=1
-time_to_first_finding_sec=199.369
-finding: kind=possible_oob_write (heuristic) addr=0x401474 time_sec=199.369
+time_to_first_finding_sec=175.280
+finding: kind=possible_oob_write (heuristic) addr=0x401474 time_sec=175.280

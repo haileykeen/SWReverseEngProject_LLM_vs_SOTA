@@ -1,0 +1,30 @@
+$ /home/erinf/.venvs/angr/bin/python /mnt/c/Users/erinf/School/SRS/angr_generic_checker.py /mnt/c/Users/erinf/School/SRS/build/divide_31/CWE369_Divide_by_Zero__int_fgets_divide_31_bad_symbols 14 /mnt/c/Users/erinf/School/SRS/findings/divide_31
+
+ERROR    | 2026-11-24 15:31:41,494 | angr.state_plugins.unicorn_engine | failed loading "unicornlib.so", unicorn support disabled ('NoneType' object has no attribute 'unicorn_py3')
+WARNING  | 2026-11-24 15:31:45,306 | angr.storage.memory_mixins.default_filler_mixin | The program is accessing memory with an unspecified value. This could indicate unwanted behavior.
+WARNING  | 2026-11-24 15:31:45,308 | angr.storage.memory_mixins.default_filler_mixin | angr will cope with this by generating an unconstrained symbolic variable and continuing. You can resolve this by:
+WARNING  | 2026-11-24 15:31:45,309 | angr.storage.memory_mixins.default_filler_mixin | 1) setting a value to the initial state
+WARNING  | 2026-11-24 15:31:45,309 | angr.storage.memory_mixins.default_filler_mixin | 2) adding the state option ZERO_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, to make unknown regions hold null
+WARNING  | 2026-11-24 15:31:45,310 | angr.storage.memory_mixins.default_filler_mixin | 3) adding the state option SYMBOL_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, to suppress these messages.
+WARNING  | 2026-11-24 15:31:45,311 | angr.storage.memory_mixins.default_filler_mixin | Filling memory at 0x28 with 8 unconstrained bytes referenced from 0x401479 (CWE369_Divide_by_Zero__int_fgets_divide_31_bad+0x90 in CWE369_Divide_by_Zero__int_fgets_divide_31_bad_symbols (0x1479))
+[*] Exploring with generic per-instruction unsafe-operation checks active...
+[FOUND] divide_by_zero at 0x40146a  (insn: idiv)  — 5 witness input(s)  (t=2.92s since start)
+
+[*] Exploration done in 2.64s.
+    deadended=1 errored=0 active=0
+[*] Total findings: 1
+[*] Time to FIRST finding (any kind): 2.92s
+
+--- Finding 0: divide_by_zero at 0x40146a (idiv) — found at t=2.92s ---
+    sample 0: saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/divide_by_zero_0x40146a_sample_000.bin  (raw bytes: b'\x80\x94\xcc\x15[\xa1\xddP\xf0\xe0d~\x1d\x00')
+    sample 1: saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/divide_by_zero_0x40146a_sample_001.bin  (raw bytes: b'\xf5\xf5\xf5\xf5\xf5\xf5\xf5\xf5\xf5\xf5\xf5\xf5\x00\x00')
+    sample 2: saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/divide_by_zero_0x40146a_sample_002.bin  (raw bytes: b'\x80\x94\xcc\x15[\xa1\xddP\xf0\xe0d~\x1c\x00')
+    sample 3: saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/divide_by_zero_0x40146a_sample_003.bin  (raw bytes: b'X\xc0\xa4\x8e`\xc0\xe10\x00\xa1@\xf2\x1c\x00')
+    sample 4: saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/divide_by_zero_0x40146a_sample_004.bin  (raw bytes: b'j[\xe8\x0fc&\x820\x1100\xc6\x9c\x00')
+
+[+] Done. 5 candidate input(s) saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/
+[+] TOTAL SCRIPT RUNTIME: 3.47s
+[+] Timing summary saved to /mnt/c/Users/erinf/School/SRS/findings/divide_31/timing.txt
+    Next: run each one against the real _bad_san and _good_san binaries
+    (same as before) to confirm which findings are real, sanitizer-
+    confirmed bugs — especially important for the heuristic OOB check.

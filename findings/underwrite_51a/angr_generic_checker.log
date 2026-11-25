@@ -1,0 +1,32 @@
+$ /home/erinf/.venvs/angr/bin/python /mnt/c/Users/erinf/School/SRS/angr_generic_checker.py /mnt/c/Users/erinf/School/SRS/build/underwrite_51a/CWE124_Buffer_Underwrite__CWE839_fgets_51a_bad_symbols 14 /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a
+
+ERROR    | 2026-11-24 16:00:47,190 | angr.state_plugins.unicorn_engine | failed loading "unicornlib.so", unicorn support disabled ('NoneType' object has no attribute 'unicorn_py3')
+WARNING  | 2026-11-24 16:02:41,360 | angr.storage.memory_mixins.default_filler_mixin | The program is accessing memory with an unspecified value. This could indicate unwanted behavior.
+WARNING  | 2026-11-24 16:02:41,362 | angr.storage.memory_mixins.default_filler_mixin | angr will cope with this by generating an unconstrained symbolic variable and continuing. You can resolve this by:
+WARNING  | 2026-11-24 16:02:41,362 | angr.storage.memory_mixins.default_filler_mixin | 1) setting a value to the initial state
+WARNING  | 2026-11-24 16:02:41,363 | angr.storage.memory_mixins.default_filler_mixin | 2) adding the state option ZERO_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, to make unknown regions hold null
+WARNING  | 2026-11-24 16:02:41,364 | angr.storage.memory_mixins.default_filler_mixin | 3) adding the state option SYMBOL_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, to suppress these messages.
+WARNING  | 2026-11-24 16:02:41,365 | angr.storage.memory_mixins.default_filler_mixin | Filling memory at 0x7ffdfffefeb0 with 4 unconstrained bytes referenced from 0x401501 (CWE124_Buffer_Underwrite__CWE839_fgets_51b_badSink+0x3a in CWE124_Buffer_Underwrite__CWE839_fgets_51a_bad_symbols (0x1501))
+WARNING  | 2026-11-24 16:02:57,436 | angr.storage.memory_mixins.default_filler_mixin | Filling memory at 0x28 with 8 unconstrained bytes referenced from 0x401542 (CWE124_Buffer_Underwrite__CWE839_fgets_51b_badSink+0x7b in CWE124_Buffer_Underwrite__CWE839_fgets_51a_bad_symbols (0x1542))
+WARNING  | 2026-11-24 16:02:58,025 | angr.storage.memory_mixins.default_filler_mixin | Filling memory at 0x28 with 8 unconstrained bytes referenced from 0x401542 (CWE124_Buffer_Underwrite__CWE839_fgets_51b_badSink+0x7b in CWE124_Buffer_Underwrite__CWE839_fgets_51a_bad_symbols (0x1542))
+[*] Exploring with generic per-instruction unsafe-operation checks active...
+[FOUND] possible_oob_write (heuristic) at 0x401501  (insn: mov)  — 5 witness input(s)  (t=124.03s since start)
+
+[*] Exploration done in 129.67s.
+    deadended=2 errored=0 active=0
+[*] Total findings: 1
+[*] Time to FIRST finding (any kind): 124.03s
+
+--- Finding 0: possible_oob_write (heuristic) at 0x401501 (mov) — found at t=124.03s ---
+    sample 0: saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/possible_oob_write (heuristic)_0x401501_sample_000.bin  (raw bytes: b'40802189324\x10\x9c\x00')
+    sample 1: saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/possible_oob_write (heuristic)_0x401501_sample_001.bin  (raw bytes: b'40802189324\x04\x8a@')
+    sample 2: saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/possible_oob_write (heuristic)_0x401501_sample_002.bin  (raw bytes: b'40802189324\x04\x82\x00')
+    sample 3: saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/possible_oob_write (heuristic)_0x401501_sample_003.bin  (raw bytes: b'40802189324\x04\x82@')
+    sample 4: saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/possible_oob_write (heuristic)_0x401501_sample_004.bin  (raw bytes: b'88046829580(\x1a\x00')
+
+[+] Done. 5 candidate input(s) saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/
+[+] TOTAL SCRIPT RUNTIME: 130.46s
+[+] Timing summary saved to /mnt/c/Users/erinf/School/SRS/findings/underwrite_51a/timing.txt
+    Next: run each one against the real _bad_san and _good_san binaries
+    (same as before) to confirm which findings are real, sanitizer-
+    confirmed bugs — especially important for the heuristic OOB check.

@@ -1,0 +1,6 @@
+binary=/mnt/c/Users/erinf/School/SRS/build/underwrite_31/CWE124_Buffer_Underwrite__CWE839_fgets_31_bad_symbols
+total_runtime_sec=133.540
+exploration_sec=133.005
+num_findings=1
+time_to_first_finding_sec=130.013
+finding: kind=possible_oob_write (heuristic) addr=0x401480 time_sec=130.013

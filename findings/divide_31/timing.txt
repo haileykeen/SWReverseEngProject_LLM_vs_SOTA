@@ -1,0 +1,6 @@
+binary=/mnt/c/Users/erinf/School/SRS/build/divide_31/CWE369_Divide_by_Zero__int_fgets_divide_31_bad_symbols
+total_runtime_sec=3.466
+exploration_sec=2.644
+num_findings=1
+time_to_first_finding_sec=2.922
+finding: kind=divide_by_zero addr=0x40146a time_sec=2.922

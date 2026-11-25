@@ -1,0 +1,6 @@
+binary=/mnt/c/Users/erinf/School/SRS/build/sub_31/CWE191_Integer_Underflow__int_fgets_sub_31_bad_symbols
+total_runtime_sec=33.432
+exploration_sec=32.567
+num_findings=1
+time_to_first_finding_sec=33.276
+finding: kind=signed_overflow addr=0x401467 time_sec=33.276

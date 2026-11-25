@@ -1,0 +1,6 @@
+binary=/mnt/c/Users/erinf/School/SRS/build/add_02/CWE190_Integer_Overflow__int_fgets_add_02_bad_symbols
+total_runtime_sec=46.914
+exploration_sec=46.263
+num_findings=1
+time_to_first_finding_sec=46.743
+finding: kind=signed_overflow addr=0x40145b time_sec=46.743
