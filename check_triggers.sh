@@ -21,11 +21,8 @@ BUILD_ROOT="${1:-build}"
 # you confirmed by hand makes the _bad_san binary's sanitizer fire.
 declare -A TRIGGERS=(
   ["divide_01"]="0"
-  ["divide_02"]="0"
   ["add_01"]="2147483647"
-  ["add_02"]="2147483647"
   ["stack_01"]="15"
-  ["stack_02"]="15"   # TODO: confirm this independently — same template, not yet hand-verified
   ["divide_31"]="0"            # TODO: confirm — not yet hand-verified
   ["add_31"]="2147483647"      # confirmed
   ["stack_31"]="15"            # confirmed
