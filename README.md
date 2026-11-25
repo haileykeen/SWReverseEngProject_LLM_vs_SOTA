@@ -1,6 +1,3 @@
-# SWReverseEngProject_LLM_vs_SOTA
-Course Project Evaluating Vulnerability Detection by LLMs Compared to State of the Art Software Reverse Engineering Tools 
-
 # LLMs vs. angr/AFL++ Vulnerability Detection
 
 Empirical comparison of LLMs against angr (symbolic execution) and AFL++
@@ -94,15 +91,10 @@ shell scripts that invoke it.
 
 ### 4. Juliet Test Suite v1.3
 
-Download the C/C++ Juliet Test Suite from NIST SARD:
-
-- https://samate.nist.gov/SARD/test-suites/112 (or search "Juliet Test Suite
-  for C/C++ v1.3" on https://samate.nist.gov/SARD/)
-
-Extract it so the layout matches what the scripts expect:
+Clone the C/C++ Juliet Test Suite (mirrors the NIST SARD release):
 
 ```bash
-unzip Juliet_Test_Suite_v1.3_for_C_Cpp.zip -d juliet-test-suite-c
+git clone https://github.com/arichardson/juliet-test-suite-c.git
 ```
 
 so that you end up with:
@@ -119,29 +111,39 @@ expect `juliet-test-suite-c/testcasesupport` directly under it — if your
 checkout nests differently, edit the `SUPPORT_DIR` line at the top of both
 scripts.
 
-## Quickstart (one case, end to end)
+## Quickstart (One End-to-End Case)
 
 ```bash
 source angr-env/bin/activate
 
 SRC=juliet-test-suite-c/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_fgets_divide_01.c
-./build_case.sh "$SRC" build/divide_01
-./build_afl.sh  "$SRC" build/divide_01
 
+# 1. Build the symbols/stripped/sanitizer binaries (+ anonymized LLM inputs)
+./build_case.sh "$SRC" build/divide_01
+
+# 2. Build the AFL++-instrumented (+ CMPLOG) binaries
+./build_afl.sh "$SRC" build/divide_01
+
+# 3. Run a timed AFL++ campaign
 ./run_afl_campaign.sh \
   build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_afl \
   afl_runs/divide_01 60 \
   build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_afl_cmplog
 
-python3 angr_generic_checker.py \
-  build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_symbols \
-  14 findings/divide_01
-
+# 4. Validate AFL++'s crashes against the real ASan/UBSan binaries
 ./validate_candidates.sh afl_runs/divide_01/out/default/crashes \
   build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_san \
   build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_good_san
 
-./check_triggers.sh
+# 5. Run angr's generic checker
+python3 angr_generic_checker.py \
+  build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_symbols \
+  14 findings/divide_01
+
+# 6. Validate angr's findings against the real ASan/UBSan binaries
+./validate_candidates.sh findings/divide_01 \
+  build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_bad_san \
+  build/divide_01/CWE369_Divide_by_Zero__int_fgets_divide_01_good_san
 ```
 
 A case with a split-across-files flow variant (e.g. Juliet's `51a`/`51b`
@@ -157,6 +159,12 @@ SRC_B=juliet-test-suite-c/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Z
 
 The full command set for all 15 cases used in this project, plus the raw
 output of every run, is in the project report's Appendix.
+
+## One End-to-End Case Example Screenshots
+  ![binary build](example_image/div1.png)
+  ![AFL++ build](example_image/div2.png)
+  ![AFL++ run and verify](example_image/div3.png)
+  ![angr run and verify](example_image/div4.png)
 
 ## Notes on reproducing results exactly
 
