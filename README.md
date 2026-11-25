@@ -18,6 +18,8 @@ results, and full appendix (commands + raw tool output).
 ├── angr_requirements.txt       # Python dependencies for the angr checker
 ├── juliet-test-suite-c/        # NOT committed — download separately, see Prerequisites
 ├── AFLplusplus/                # NOT committed — clone + build separately, see Prerequisites
+├── dev_history/                # experimental python scripts for angr
+├── example_run/                # images for readme
 ├── build/                      # generated — per-case binaries (build_case.sh / build_afl.sh output)
 ├── afl_runs/                   # generated — per-case AFL++ campaign output + timing.txt
 ├── findings/                   # generated — angr checker output per case
