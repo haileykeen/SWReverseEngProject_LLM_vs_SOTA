@@ -1,0 +1,6 @@
+target=build/underwrite_31/CWE124_Buffer_Underwrite__CWE839_fgets_31_bad_afl
+cmplog=true (build/underwrite_31/CWE124_Buffer_Underwrite__CWE839_fgets_31_bad_afl_cmplog)
+campaign_wall_clock_sec=3600
+num_crash_files=1
+time_to_first_crash_sec=2
+first_crash_file=afl_runs/underwrite_31/out/default/crashes/id:000000,sig:06,src:000000,time:126,execs:51,op:havoc,rep:4

@@ -1,0 +1,7 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=build/add_51a/CWE190_Integer_Overflow__int_fgets_add_51a_bad_afl
+AFL_CUSTOM_INFO_PROGRAM_ARGV=
+AFL_CUSTOM_INFO_OUT=afl_runs/add_51a/out/default
+AFL_SKIP_CPUFREQ=1
+# command line:
+'afl-fuzz' '-i' 'afl_runs/add_51a/seeds' '-o' 'afl_runs/add_51a/out' '-c' 'build/add_51a/CWE190_Integer_Overflow__int_fgets_add_51a_bad_afl_cmplog' '--' 'build/add_51a/CWE190_Integer_Overflow__int_fgets_add_51a_bad_afl'

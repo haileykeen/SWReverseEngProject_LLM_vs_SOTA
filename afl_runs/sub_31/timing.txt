@@ -1,0 +1,5 @@
+target=build/sub_31/CWE191_Integer_Underflow__int_fgets_sub_31_bad_afl
+cmplog=true (build/sub_31/CWE191_Integer_Underflow__int_fgets_sub_31_bad_afl_cmplog)
+campaign_wall_clock_sec=3600
+num_crash_files=0
+time_to_first_crash_sec=NOT_FOUND_WITHIN_BUDGET

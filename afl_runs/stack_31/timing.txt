@@ -1,0 +1,6 @@
+target=build/stack_31/CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_31_bad_afl
+cmplog=true (build/stack_31/CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_31_bad_afl_cmplog)
+campaign_wall_clock_sec=3601
+num_crash_files=1
+time_to_first_crash_sec=2
+first_crash_file=afl_runs/stack_31/out/default/crashes/id:000000,sig:06,src:000000,time:25,execs:15,op:havoc,rep:8

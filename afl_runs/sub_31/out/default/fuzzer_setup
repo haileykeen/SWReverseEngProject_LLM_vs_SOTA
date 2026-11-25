@@ -1,0 +1,7 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=build/sub_31/CWE191_Integer_Underflow__int_fgets_sub_31_bad_afl
+AFL_CUSTOM_INFO_PROGRAM_ARGV=
+AFL_CUSTOM_INFO_OUT=afl_runs/sub_31/out/default
+AFL_SKIP_CPUFREQ=1
+# command line:
+'afl-fuzz' '-i' 'afl_runs/sub_31/seeds' '-o' 'afl_runs/sub_31/out' '-c' 'build/sub_31/CWE191_Integer_Underflow__int_fgets_sub_31_bad_afl_cmplog' '--' 'build/sub_31/CWE191_Integer_Underflow__int_fgets_sub_31_bad_afl'

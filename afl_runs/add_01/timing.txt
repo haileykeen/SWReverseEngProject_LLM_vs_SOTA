@@ -1,0 +1,5 @@
+target=build/add_01/CWE190_Integer_Overflow__int_fgets_add_01_bad_afl
+cmplog=true (build/add_01/CWE190_Integer_Overflow__int_fgets_add_01_bad_afl_cmplog)
+campaign_wall_clock_sec=5535
+num_crash_files=0
+time_to_first_crash_sec=NOT_FOUND_WITHIN_BUDGET

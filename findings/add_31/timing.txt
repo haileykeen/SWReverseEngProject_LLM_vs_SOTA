@@ -1,0 +1,6 @@
+binary=build/add_31/CWE190_Integer_Overflow__int_fgets_add_31_bad_symbols
+total_runtime_sec=38.083
+exploration_sec=37.989
+num_findings=1
+time_to_first_finding_sec=37.922
+finding: kind=signed_overflow addr=0x401467 time_sec=37.922
