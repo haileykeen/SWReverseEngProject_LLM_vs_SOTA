@@ -161,10 +161,10 @@ The full command set for all 15 cases used in this project, plus the raw
 output of every run, is in the project report's Appendix.
 
 ## One End-to-End Case Example Screenshots
-  ![binary build](example_image/div1.png)
-  ![AFL++ build](example_image/div2.png)
-  ![AFL++ run and verify](example_image/div3.png)
-  ![angr run and verify](example_image/div4.png)
+  ![binary build](example_run/div1.png)
+  ![AFL++ build](example_run/div2.png)
+  ![AFL++ run and verify](example_run/div3.png)
+  ![angr run and verify](example_run/div4.png)
 
 ## Notes on reproducing results exactly
 
